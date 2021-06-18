@@ -10,21 +10,29 @@
 <body>
     <header>
         <p>View Highscore: <span id = "VeiwHighscore"></span></p>
+        <input type = "button" id = "StartGame"/>
         <p>Timer: <span id = "timer"></span></p>
 
     </header>
 
-    <div class = "card">
+    <div class = "quiz">
         <span id = "Question"></span>
         <ul>
-            <input type = "button" id = "optionOne" value = "">
-            <input type = "button" id = "optionTwo" value = "">
-            <input type = "button" id = "optionThree" value = "">
-            <input type = "button" id = "optionFour" value = "">
-            <!--<span id = "optionFour"></span>-->
+            <div class = "choice" id = "One" onclick = "checkAnswer('One')"></div>
+            <div class = "choice" id = "Two" onclick = "checkAnswer('Two')"></div>  
+            <div class = "choice" id = "Three" onclick = "checkAnswer('Three')"></div>
+            <div class = "choice" id = "Two" onclick = "checkAnswer('Four')"></div>  
         </ul>
-        <span id = "answer"></span>
+        
     </div>
+    <div class = "info">
+        <label for="name">Name</label>
+        <input type ="text" name="name" placeholder="Rupert"/>
+        <button class = "retry">Retry</button>
+        <button class = "clearScore">Clear Scoreboard</button>
+
+    </div>
+
 </body>
 <script src = "script.js"></script>
 </html>
