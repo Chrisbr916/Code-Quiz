@@ -14,35 +14,38 @@ var question = document.getElementById("question");
 var timer;
 var TimerCount;
 var score = 0;
+var timeLeft = 60;
+
+
 
 let questions = [
 
     {
-        question : "",
+        question : "What languge do you use MAINLY to change how websites look",
         
-        choiceOne : "",
+        choiceOne : "HTML",
 
-        choiceTwo : "",
+        choiceTwo : "CSS",
 
-        choiceThree : "", 
+        choiceThree : "Javascript", 
 
-        choiceFour : "",
+        choiceFour : "none of these",
 
-        correct : "",
+        correct : "Two",
 
 
     },{
-        question : "",
+        question : "What does HTML stand for?",
         
-        choiceOne : "",
+        choiceOne : "hyper text markup language",
 
-        choiceTwo : "",
+        choiceTwo : "how to make love",
 
-        choiceThree : "", 
+        choiceThree : "Home tool markup language", 
 
-        choiceFour : "",
+        choiceFour : "hyperlinks and text markup languages",
 
-        correct : "",
+        correct : "One",
 
 
 
@@ -65,7 +68,7 @@ let questions = [
 
 ];
 // this sets a constat that will later be used to let the quiz know when to end
-const lastQuestion = question.length - 1; 
+const lastQuestion = questions.length - 1; 
 // the following code makes the quiz start at the the first array
 let runningQuestion = 0;
 
@@ -81,10 +84,54 @@ function renderQuestion(){
 
     choiceTwo.innerHTML = q.choiceTwo;
 
-    choiceThree.innerHTML = qchoiceThree;
+    choiceThree.innerHTML = q.choiceThree;
 
-    choiceFour.innerHTML = qchoiceFour;
+    choiceFour.innerHTML = q.choiceFour;
+}
+//this sets the question to the firs one and the next line renders the first question
+runningQuestion = 0;
+renderQuestion();
+//this flips it to the next question and then renders the question
+runningQuestion++;
+renderQuestion();
+
+
+
+// this set of coed will rende rthe counter 
+
+function timerRender(){
+
+
 }
 
+let timer = setInterval(timerRender,1000);
+
+
+
+//this part will be the set up of the check answer function, which will check to see if the selecetd answer is corect
+function checkAnswer(answer){
+    if (question[runningQuestion].correct != answer){
+        timer -3;
+    }
+    //this next bit flips throug hthe questons as long as it is not the last question 
+    if (runningQuestion < lastQuestion){
+        runningQuestion++;
+        renderQuestion();
+    }
+    //this is where I need to have the score shown and have it recoreded as well as log the persons initial with an else
+    else {}
+}
+
+const start = document.getElementById("StartButton");
+//this waits for the click to start the mention function that will stat the quiz
 start.addEventlistener("click",startQuiz);
 
+function startQuiz(){
+    start.style.display = "none"; 
+    //this makes the timer show up
+    timerRender();
+    // this makes the timer get called every one second
+    timer = setInterval(timerRender,1000)
+    renderQuestion();
+    startQuiz.style.display = "block";
+}
