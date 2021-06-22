@@ -10,20 +10,21 @@
 <body>
     <header>
         <button class = "VeiwHighscore">Veiw Highscore</button>
-        <button class = "StartGame">Start Game</button>
+        <button class = "StartGame" >Start Game</button>
         <p>Timer: <span id = "timer"></span></p>
 
     </header>
 
     <div class = "quiz">
+        <div class = "insert">
         <span id = "Question"></span>
         <ul>
-            <div class = "choice" id = "One" onclick = "checkAnswer('One')">One</div>
+            <div class = "choice" id = "One" value = "" onclick = "checkAnswer('One')">One</div>
             <div class = "choice" id = "Two" onclick = "checkAnswer('Two')">Two</div>  
             <div class = "choice" id = "Three" onclick = "checkAnswer('Three')">Three</div>
             <div class = "choice" id = "Two" onclick = "checkAnswer('Four')">Four</div>  
         </ul>
-        
+        </div>
     </div>
     <div class = "info">
         <label for="name">Name</label>

@@ -1,6 +1,6 @@
 
 var timerElement = document.querySelector("#timer");
-var startButton = document.querySelector("#StartButton");
+var startButton = document.querySelector(".StartGame");
 var HighScoreTracker = document.querySelector("#VeiwHighscore");
 var nameInput = document.querySelector("#name");
 var choiceOne = document.getElementById("One");
@@ -77,16 +77,16 @@ let runningQuestion = 0;
 function renderQuestion(){
     let q = questions[runningQuestion];
 
+    //this summons the question of what is listed 
+    //question.innerHTML = "<p>" + q.question + "</p>"; 
 
-    question.innerHTML = "<p>" + q.question + "</p>"; 
+    choiceOne.value = q.choiceOne;
 
-    choiceOne.innerHTML = q.choiceOne;
+   // choiceTwo.innerHTML = q.choiceTwo;
 
-    choiceTwo.innerHTML = q.choiceTwo;
+   // choiceThree.innerHTML = q.choiceThree;
 
-    choiceThree.innerHTML = q.choiceThree;
-
-    choiceFour.innerHTML = q.choiceFour;
+    //choiceFour.innerHTML = q.choiceFour;
 }
 //this sets the question to the firs one and the next line renders the first question
 runningQuestion = 0;
@@ -97,14 +97,14 @@ renderQuestion();
 
 
 
-// this set of coed will rende rthe counter 
+// this set of code will render rthe counter 
 
 function timerRender(){
 
 
 }
 
-let timer = setInterval(timerRender,1000);
+//let timer = setInterval(timerRender,1000);
 
 
 
@@ -119,19 +119,20 @@ function checkAnswer(answer){
         renderQuestion();
     }
     //this is where I need to have the score shown and have it recoreded as well as log the persons initial with an else
-    else {}
-}
 
-const start = document.getElementById("StartButton");
+}
+// this and query selector are the same thing 
+//const startButton = document.getElementById("StartGame");
 //this waits for the click to start the mention function that will stat the quiz
-start.addEventlistener("click",startQuiz);
+startButton.addEventListener("click",startQuiz);
 
 function startQuiz(){
-    start.style.display = "none"; 
+   // start.style.display = "none"; 
     //this makes the timer show up
+    console.log("this is working")
     timerRender();
     // this makes the timer get called every one second
     timer = setInterval(timerRender,1000)
     renderQuestion();
-    startQuiz.style.display = "block";
+    //startQuiz.style.display = "block";
 }
